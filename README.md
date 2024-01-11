@@ -1,5 +1,13 @@
 # org-infra
 
+:warning: Important notice! :warning:
+Make sure to contribute this docs before doing it on your repo based on these.
+That's something you should keep in mind in case you want to still receive updates from this template on your project.
+
+Same for new variables or resources added by you lately. For example, if you are missing a resource that this template does not currently provide, let's say `repositories/templates/github_dependabot_secret.tf` don't add that to your project directly. Make sure to follow the <a href="https://github.com/onebeyond/org-infra-template?tab=coc-ov-file">How to Contribute guide</a> for creating a **Pull Request** including your changes for being reflected on this template before.
+
+In that way, you are always gonna be able to benefit from the updates of this template.
+
 ## Terraform state
 
 Terraform states are stored in a backend remotely in an AWS S3 bucket. This bucket must be a non-public one, encrypted and have versioning enabled to prevent data loss.
@@ -27,6 +35,12 @@ You can test the Terraform code locally by running the following commands (you n
 ```bash
 terraform init
 terraform plan
+```
+
+Since running a plan over all the project resource types may be something slow is strongly recommended to run a plan for your specific desired module.
+For running a plan over `module.repositories` a command is available:
+```bash
+make plan-module-repositories
 ```
 
 ## Importing a repository
